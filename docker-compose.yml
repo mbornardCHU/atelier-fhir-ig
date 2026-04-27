@@ -1,0 +1,15 @@
+services:
+  fhir-ig:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: fhir-ig-workshop
+    working_dir: /workspace
+    volumes:
+      - ./workspace:/workspace
+      - fhir-packages:/root/.fhir/packages
+    stdin_open: true
+    tty: true
+
+volumes:
+  fhir-packages:
