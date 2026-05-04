@@ -1,41 +1,130 @@
-# Atelier FHIR IG avec Docker
 
-## Prérequis
-- Docker Desktop installé et démarré
+# Atelier FHIR – Création d’un Implementation Guide (IG) avec Docker
 
-## 1. Construire l’image
+## Objectif
+Dans ce TP, vous allez créer et manipuler un Implementation Guide FHIR sans rien installer sur votre machine (à part Docker).
+Tout se fait dans un conteneur, mais les fichiers restent accessibles sur votre ordinateur.
+
+---
+
+Prérequis
+
+* Docker Desktop installé
+* Docker Desktop lancé
+
+---
+
+### Étape 1 – Récupérer le projet
+
+Cloner le repository fourni :
+```bash
+git clone <repo>
+cd <nom-du-repo>
+```
+---
+
+### Étape 2 – Construire l’environnement Docker
+
+Cette étape installe tous les outils nécessaires (SUSHI, IG Publisher, Java, etc.) dans une image Docker.
 ```bash
 docker compose build
 ```
-## 2. Ouvrir un shell dans le conteneur
+Cette commande peut prendre quelques minutes la première fois.
+
+---
+
+### Étape 3 – Lancer le conteneur
+
+On ouvre un terminal à l’intérieur du conteneur :
 ```bash
 docker compose run --rm fhir-ig bash
 ```
-## 3. Initialiser un projet SUSHI
-Dans le container :
+Vous êtes maintenant dans un environnement prêt à l’emploi.
+
+---
+
+### Étape 4 – Comprendre le fonctionnement
+
+Le dossier /workspace dans le conteneur est relié au dossier workspace sur votre machine.
+
+Cela signifie que :
+
+* tout ce que vous créez dans le conteneur apparaît sur votre PC
+* vous pouvez modifier les fichiers avec votre éditeur (VS Code par exemple)
+
+---
+
+### Étape 5 – Initialiser un projet FHIR IG
+
+Dans le conteneur :
 ```bash
 cd /workspace
 sushi init
 ```
-Les fichiers générés apparaîtront aussi dans le dossier `workspace` de votre machine.
+Vous allez devoir répondre à quelques questions (nom du projet, id, etc.).
 
-## 4. Aller dans le projet généré 
+Un nouveau dossier est créé dans workspace sur votre machine.
+
+---
+
+### Étape 6 – Se déplacer dans le projet
+
 Exemple :
 ```bash
 cd mon-ig
 ```
-## 5. Compiler les fichiers FSH
+(adaptez avec le nom que vous avez choisi)
 
+---
+
+### Étape 7 – Compiler les fichiers FSH
+
+Dans le dossier du projet :
 ```bash
 sushi .
 ```
-Attention : ne pas oublier le `.`.
+Important : ne pas oublier le point à la fin.
 
+Cette commande permet de transformer vos fichiers FSH en ressources FHIR (JSON).
+
+---
+
+### Étape 8 – Générer l’Implementation Guide (site web)
+
+Toujours dans le dossier du projet :
 ```bash
-git clone <repo>
-cd atelier-fhir-ig
+./_genonce.sh
+```
+Cette commande génère le site web de votre IG.
+
+---
+
+### Étape 9 – Résultat
+
+Une fois terminé, vous trouverez le résultat ici :
+```bash
+workspace/mon-ig/output/
+```
+Vous pouvez ouvrir le fichier index.html dans votre navigateur pour voir votre IG.
+
+---
+
+Résumé des commandes principales
+```bash
 docker compose build
 docker compose run --rm fhir-ig bash
 cd /workspace
 sushi init
-``` 
+cd mon-ig
+sushi .
+./_genonce.sh
+```
+---
+
+### Points d’attention
+
+* Toujours travailler dans /workspace
+* Ne pas oublier le "." dans sushi .
+* Si une commande ne marche pas, vérifier dans quel dossier vous êtes
+* Les fichiers générés apparaissent automatiquement sur votre machine
+
