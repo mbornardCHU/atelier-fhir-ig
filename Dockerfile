@@ -21,6 +21,14 @@ RUN apt-get update && \
 RUN npm install -g fsh-sushi@3.18.0 && \
     gem install jekyll bundler
 
+RUN echo '#!/usr/bin/env bash\n\
+set -e\n\
+echo "Correction des scripts (CRLF -> LF)..."\n\
+find . -name "*.sh" -exec sed -i "s/\\r$//" {} \\;\n\
+find . -name "*.sh" -exec chmod +x {} \\;\n\
+echo "OK : scripts corrigés."' > /usr/local/bin/fix-sh && \
+chmod +x /usr/local/bin/fix-sh
+
 WORKDIR /workspace
 
 CMD ["/bin/bash"]
