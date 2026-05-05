@@ -18,7 +18,7 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/*
 
 # Installation globale des outils
-RUN npm install -g fsh-sushi && \
+RUN npm install -g fsh-sushi@3.18.0 && \
     gem install jekyll bundler
 
 WORKDIR /workspace
