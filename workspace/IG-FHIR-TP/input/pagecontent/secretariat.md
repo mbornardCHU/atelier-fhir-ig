@@ -1,29 +1,46 @@
-### Secrétariat
+## 📅 Secrétariat — Gestion des rendez-vous
 
-Le secrétariat crée les rendez-vous entre un patient, un soignant et une salle de l'hôpital.
+> **Auteurs** · Achraf Acheche · Sinda Ben Yahmed · Rahma Ben Younes
 
-#### Ressource utilisée
+---
 
-Le secrétariat utilise un seul profil FHIR : **`AppointmentSecretariat`** (basé sur la ressource `Appointment`).
+### 🎯 Mission
 
-Ce profil référence des ressources gérées par les autres services :
+Le **secrétariat** crée les rendez-vous entre un **patient**, un **soignant** et une **salle** de l'hôpital. Notre périmètre se limite à la ressource FHIR `Appointment`.
 
-| Ressource     | Service responsable    |
-|---------------|------------------------|
-| `Patient`     | Bureau des entrées     |
-| `Practitioner`| Ressources Humaines    |
-| `Location`    | Gestion du patrimoine  |
+---
 
-#### Règles du profil
+### 🧩 Profil livré
 
-- Le rendez-vous a obligatoirement une date de début, une date de fin, un statut et un motif.
-- Il a 3 participants : un patient, un soignant et une salle.
-- Le soignant est identifié par son **RPPS** (numéro national, OID `1.2.250.1.71.4.2.1`).
-- La date de fin doit être après la date de début (invariant `fin-apres-debut`).
+| Profil | Hérite de | Description |
+|--------|-----------|-------------|
+| **`AppointmentSecretariat`** | `Appointment` (R4) | Rendez-vous reliant patient, soignant et salle |
 
-#### RPPS du soignant
+#### Ressources référencées (gérées par les autres groupes)
 
-Pour permettre aux RH de retrouver les RDV d'un soignant via son RPPS, le numéro est inclus directement dans la référence :
+| Ressource     | Groupe responsable   |
+|:-------------:|----------------------|
+| 👤 `Patient`     | Bureau des entrées     |
+| 🧑‍⚕️ `Practitioner`| Ressources Humaines    |
+| 🏥 `Location`    | Gestion du patrimoine  |
+
+> 💡 On référence les **types de base FHIR**, pas un profil précis. Cela permet d'accepter le travail des **deux équipes RH** indifféremment (qu'elles aient nommé leur profil `Soignant`, `Practitioner` ou autre).
+
+---
+
+### 📐 Règles du profil
+
+- ✅ Date de **début** et date de **fin** obligatoires
+- ✅ **Statut**, **type** et **motif** obligatoires
+- ✅ Exactement **3 participants** : un patient, un soignant, une salle
+- ✅ Le soignant est identifié par son **RPPS** (OID `urn:oid:1.2.250.1.71.4.2.1`)
+- 🛡️ Invariant **`fin-apres-debut`** : `end > start`
+
+---
+
+### 🔑 Identification du soignant par RPPS
+
+Pour que les RH puissent retrouver les RDV d'un soignant par son numéro RPPS, le RPPS est inscrit **directement dans la référence** :
 
 ```json
 "actor": {
@@ -36,16 +53,29 @@ Pour permettre aux RH de retrouver les RDV d'un soignant via son RPPS, le numér
 }
 ```
 
-#### Recherches utiles pour les autres services
+---
 
-- Bureau des entrées — RDV d'un patient :
-  `GET [base]/Appointment?patient=Patient/dupont`
-- RH — RDV d'un soignant par RPPS :
-  `GET [base]/Appointment?actor.identifier=urn:oid:1.2.250.1.71.4.2.1|10003557123`
-- Patrimoine — RDV dans une salle :
-  `GET [base]/Appointment?location=Location/salle-101`
+### 🔍 Requêtes inter-services
 
-#### Exemples
+| Service | Besoin | Requête FHIR |
+|---------|--------|--------------|
+| 👤 Bureau des entrées | RDV d'un patient | `GET [base]/Appointment?patient=Patient/dupont` |
+| 🧑‍⚕️ RH | RDV d'un soignant (par RPPS) | `GET [base]/Appointment?actor.identifier=urn:oid:1.2.250.1.71.4.2.1\|10003557123` |
+| 🏥 Patrimoine | RDV dans une salle | `GET [base]/Appointment?location=Location/salle-101` |
 
-- `ExampleAppointmentCardio` — consultation de cardiologie confirmée.
-- `ExampleAppointmentKine` — séance de kiné en attente de confirmation.
+---
+
+### 🧪 Exemples fournis
+
+| Exemple | Scénario | Statut |
+|---------|----------|:------:|
+| **`ExampleAppointmentCardio`** | Consultation cardiologique de M. Dupont avec le Dr Martin | `booked` |
+| **`ExampleAppointmentKine`** | Séance de kiné de Mme Lefevre avec Mme Dubois | `pending` |
+
+---
+
+### 🤝 Cohérence avec les autres groupes
+
+- **RH (les deux équipes)** — on référence le type de base `Practitioner` : compatible avec n'importe quel profil RH (`Soignant`, `Practitioner`, etc.). RPPS et cardinalité `1..1` alignés.
+- **Bureau des entrées** — on référence le type `Patient`.
+- **Patrimoine** — on référence le type `Location`.
