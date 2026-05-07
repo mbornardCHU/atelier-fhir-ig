@@ -13,7 +13,7 @@ Description: "Profil patient pour le bureau des entrées hospitalier, basé sur 
 * gender 1..1 MS
 
 // Identifiants : IPP obligatoire, INS optionnel
-* identifier ^slicing.discriminator.type = #pattern
+* identifier ^slicing.discriminator.type = #value
 * identifier ^slicing.discriminator.path = "type"
 * identifier ^slicing.rules = #open
 
