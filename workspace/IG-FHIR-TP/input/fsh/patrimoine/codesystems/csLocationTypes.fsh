@@ -6,4 +6,11 @@ Description: "CodeSystem des différents types de salles d'un établissement de 
 * ^status = #draft
 * ^content = #complete
 
-* 
+* #BAT "Bâtiment"
+* #BLC "Bloc opératoire"
+* #BOX "Box de soins"
+* #CHB "Chambre"
+* #ETG "Etage"
+* #LAB "Laboratoire"
+* #SLC "Salle de consultation"
+* #SLE "Salle d'examen"

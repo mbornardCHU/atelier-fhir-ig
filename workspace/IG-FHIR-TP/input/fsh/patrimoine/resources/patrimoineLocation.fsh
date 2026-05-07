@@ -14,6 +14,5 @@ Description: "Profil FHIR des salles pour la gestion du patrimoine d'un établis
 * partOf 0..1 MS
 * hoursOfOperation 0..* MS
 
-
-* type from https://hl7.fr/ig/fhir/core/ValueSet/fr-core-vs-location-type (required)
+* type from VSLocationTypes (required)
 * status from http://hl7.org/fhir/ValueSet/location-status (required)
