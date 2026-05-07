@@ -5,4 +5,4 @@ Description: "ValueSet des différents statuts des salles d'un établissement de
 
 * ^status = #draft
 
-*include codes from system CSLocationStatuses
+* include codes from system CSLocationStatuses

@@ -5,4 +5,4 @@ Description: "ValueSet des différents types de salles d'un établissement de sa
 
 * ^status = #draft
 
-*include codes from system CSLocationTypes
+* include codes from system CSLocationTypes

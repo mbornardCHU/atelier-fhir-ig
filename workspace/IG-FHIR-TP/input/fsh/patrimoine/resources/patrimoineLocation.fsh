@@ -6,7 +6,7 @@ Description: "Profil FHIR des salles pour la gestion du patrimoine d'un établis
 
 * identifier 0..* MS
 * status 1..1 MS
-* name 1..* MS
+* name 1..1 MS
 * type 1..1 MS
 * telecom 0..* MS
 * address 0..1 MS
