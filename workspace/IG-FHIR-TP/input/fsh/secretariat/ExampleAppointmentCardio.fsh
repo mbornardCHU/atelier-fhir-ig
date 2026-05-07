@@ -14,11 +14,13 @@ Usage: #example
 
 // Patient
 * participant[patient].actor = Reference(Patient/dupont)
+* participant[patient].actor.type = "Patient"
 * participant[patient].actor.display = "Antoine Dupont"
 * participant[patient].status = #accepted
 
 // Soignant (avec RPPS)
 * participant[practitioner].actor = Reference(Practitioner/martin)
+* participant[practitioner].actor.type = "Practitioner"
 * participant[practitioner].actor.identifier.system = "urn:oid:1.2.250.1.71.4.2.1"
 * participant[practitioner].actor.identifier.value = "10003557123"
 * participant[practitioner].actor.display = "Dr Jean Martin"
@@ -26,5 +28,6 @@ Usage: #example
 
 // Salle
 * participant[location].actor = Reference(Location/salle-101)
+* participant[location].actor.type = "Location"
 * participant[location].actor.display = "Salle 101"
 * participant[location].status = #accepted
