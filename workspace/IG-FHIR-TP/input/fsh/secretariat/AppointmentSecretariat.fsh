@@ -23,7 +23,7 @@ Description: "Rendez-vous entre un patient, un soignant et une salle de l'hôpit
 * participant[patient].actor only Reference(Patient)
 
 * participant[practitioner].actor 1..1 MS
-* participant[practitioner].actor only Reference(Soignant or SoignantRole)
+* participant[practitioner].actor only Reference(Practitioner or PractitionerRole)
 * participant[practitioner].actor.identifier 1..1 MS
 * participant[practitioner].actor.identifier.system = "urn:oid:1.2.250.1.71.4.2.1"
 * participant[practitioner].actor.identifier.value 1..1 MS
