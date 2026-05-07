@@ -1,1 +1,9 @@
 validator-test/validator_cli.jar
+
+workspace/IG-FHIR-TP/.DS_Store
+workspace/IG-FHIR-TP/IThumbs.db
+workspace/IG-FHIR-TP/fsh-generated
+workspace/IG-FHIR-TP/input-cache
+workspace/IG-FHIR-TP/output
+workspace/IG-FHIR-TP/temp
+workspace/IG-FHIR-TP/template
