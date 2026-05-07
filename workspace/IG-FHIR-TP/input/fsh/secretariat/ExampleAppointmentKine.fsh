@@ -6,6 +6,10 @@ Title: "RDV kinésithérapie - Mme Lefevre"
 Description: "Séance de kinésithérapie en attente de confirmation."
 Usage: #example
 
+// Narrative HTML lisible (corrige le warning dom-6)
+* text.status = #generated
+* text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>RDV kinésithérapie</b> — Marie Lefevre avec Mme Sophie Dubois (RPPS 81234567890) en Salle 202.</p><p>22 juin 2026 de 14:00 à 14:45 · statut : pending.</p></div>"
+
 * status = #pending
 * description = "Séance de rééducation pour entorse de la cheville"
 * appointmentType = http://terminology.hl7.org/CodeSystem/v2-0276#FOLLOWUP

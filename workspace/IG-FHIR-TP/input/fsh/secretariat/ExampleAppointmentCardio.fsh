@@ -6,6 +6,10 @@ Title: "RDV cardiologie - M. Dupont"
 Description: "Consultation de cardiologie."
 Usage: #example
 
+// Narrative HTML lisible (corrige le warning dom-6)
+* text.status = #generated
+* text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>RDV cardiologie</b> — Antoine Dupont avec Dr Jean Martin (RPPS 10003557123) en Salle 101.</p><p>15 juin 2026 de 09:00 à 09:30 · statut : booked.</p></div>"
+
 * status = #booked
 * description = "Consultation cardiologique de suivi"
 * appointmentType = http://terminology.hl7.org/CodeSystem/v2-0276#ROUTINE
