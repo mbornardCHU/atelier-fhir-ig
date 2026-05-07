@@ -4,6 +4,9 @@ Title: "Patrimoine Location Profile"
 Parent: Location
 Description: "Profil FHIR des salles pour la gestion du patrimoine d'un établissement de soins."
 
+* extension contains 
+    LocationEnvironmentControlExtension named environmentControl 0..* MS
+
 * identifier 0..* MS
 * status 1..1 MS
 * name 1..1 MS
@@ -15,4 +18,6 @@ Description: "Profil FHIR des salles pour la gestion du patrimoine d'un établis
 * hoursOfOperation 0..* MS
 
 * type from VSLocationTypes (required)
-* status from http://hl7.org/fhir/ValueSet/location-status (required)
+* status from VSLocationStatuses (required)
+
+* partOf only Reference(Location)
