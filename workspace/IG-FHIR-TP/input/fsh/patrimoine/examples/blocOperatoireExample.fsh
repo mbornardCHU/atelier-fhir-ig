@@ -43,8 +43,8 @@ Description: "Instance exemple d'un bloc opératoire dans un établissement de s
 * hoursOfOperation[1].openingTime = "08:00:00"
 * hoursOfOperation[1].closingTime = "14:00:00"
 
-* extension[environmentControl][0].valueCodeableConcept = CS#sterility "Sterility Environment Control"
-* extension[environmentControl][1].valueCodeableConcept = CS#pressure "Environment with pressure to prevents microparticles from entering"
-* extension[environmentControl][2].valueCodeableConcept = CS#temperature "Temperature Control"
-* extension[environmentControl][3].valueCodeableConcept = CS#humidity "Humidity rate Control"
-* extension[environmentControl][4].valueCodeableConcept = CS#air "Air Quality Control"
+* extension[environmentControl][0].valueCodeableConcept = CSLocationEnvironmentControls#sterility "Sterility Environment Control"
+* extension[environmentControl][1].valueCodeableConcept = CSLocationEnvironmentControls#pressure "Environment with pressure to prevents microparticles from entering"
+* extension[environmentControl][2].valueCodeableConcept = CSLocationEnvironmentControls#temperature "Temperature Control"
+* extension[environmentControl][3].valueCodeableConcept = CSLocationEnvironmentControls#humidity "Humidity rate Control"
+* extension[environmentControl][4].valueCodeableConcept = CSLocationEnvironmentControls#air "Air Quality Control"

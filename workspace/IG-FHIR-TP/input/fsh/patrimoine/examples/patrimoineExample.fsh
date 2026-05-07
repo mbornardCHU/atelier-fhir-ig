@@ -37,6 +37,6 @@ Description: "Instance exemple d'une salle d'examen dans un établissement de sa
 * hoursOfOperation[0].openingTime = "08:00:00"
 * hoursOfOperation[0].closingTime = "18:00:00"
 
-* extension[environmentControl][0].valueCodeableConcept = CS#temperature "Temperature Control"
-* extension[environmentControl][1].valueCodeableConcept = CS#humidity "Humidity rate Control"
-* extension[environmentControl][2].valueCodeableConcept = CS#air "Air Quality Control"
+* extension[environmentControl][0].valueCodeableConcept = CSLocationEnvironmentControls#temperature "Temperature Control"
+* extension[environmentControl][1].valueCodeableConcept = CSLocationEnvironmentControls#humidity "Humidity rate Control"
+* extension[environmentControl][2].valueCodeableConcept = CSLocationEnvironmentControls#air "Air Quality Control"
