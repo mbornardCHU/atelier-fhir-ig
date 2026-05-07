@@ -8,3 +8,7 @@ Description: "CodeSystem des différents contrôles environnementaux des salles 
 
 * #air "Air Quality Control"
 * #temperature "Temperature Control"
+* #pressure "Environment with pressure to prevents microparticles from entering"
+* #sterility "Sterility Environment Control"
+* #humidity "Humidity rate Control"
+* #radiation "Irradiation rate Control"

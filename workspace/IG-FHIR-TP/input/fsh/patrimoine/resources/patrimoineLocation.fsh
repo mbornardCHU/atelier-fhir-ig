@@ -20,4 +20,4 @@ Description: "Profil FHIR des salles pour la gestion du patrimoine d'un établis
 * type from VSLocationTypes (required)
 * status from VSLocationStatuses (required)
 
-* partOf only Reference(Location)
+* partOf only Reference(PatrimoineLocation)
