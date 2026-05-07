@@ -1,4 +1,4 @@
-Instance: blocOperatoireExample
+Instance: BlocOperatoireExample
 InstanceOf: PatrimoineLocation
 Title: "Exemple de bloc opératoire avec contrôles environnementaux avancés"
 Description: "Instance exemple d'un bloc opératoire dans un établissement de santé"
