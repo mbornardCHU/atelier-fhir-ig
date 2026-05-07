@@ -5,11 +5,9 @@ Usage: #example
 
 * identifier[ipp].system = "https://chu-ISIS.fr/fhir/sid/ipp"
 * identifier[ipp].value = "789012"
-* identifier[ipp].type = http://terminology.hl7.org/CodeSystem/v2-0203#MR
 
 * identifier[ins].system = "urn:oid:1.2.250.1.213.1.4.8"
 * identifier[ins].value = "2850675431234"
-* identifier[ins].type = http://terminology.hl7.org/CodeSystem/v2-0203#NI
 
 * name.use = #official
 * name.family = "Meriot"

@@ -5,7 +5,6 @@ Usage: #example
 
 * identifier[ipp].system = "https://chu-ISIS.fr/fhir/sid/ipp"
 * identifier[ipp].value = "123456"
-* identifier[ipp].type = http://terminology.hl7.org/CodeSystem/v2-0203#MR
 
 * name.use = #official
 * name.family = "Sarkissian"
