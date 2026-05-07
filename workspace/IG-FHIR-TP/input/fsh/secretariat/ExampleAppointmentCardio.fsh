@@ -6,6 +6,10 @@ Title: "RDV cardiologie - M. Dupont"
 Description: "Consultation de cardiologie."
 Usage: #example
 
+// Narrative HTML lisible (corrige le warning dom-6)
+* text.status = #generated
+* text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>RDV cardiologie</b> — Antoine Dupont avec Dr Jean Martin (RPPS 10003557123) en Salle 101.</p><p>15 juin 2026 de 09:00 à 09:30 · statut : booked.</p></div>"
+
 * status = #booked
 * description = "Consultation cardiologique de suivi"
 * appointmentType = http://terminology.hl7.org/CodeSystem/v2-0276#ROUTINE
@@ -14,11 +18,13 @@ Usage: #example
 
 // Patient
 * participant[patient].actor = Reference(Patient/dupont)
+* participant[patient].actor.type = "Patient"
 * participant[patient].actor.display = "Antoine Dupont"
 * participant[patient].status = #accepted
 
 // Soignant (avec RPPS)
 * participant[practitioner].actor = Reference(Practitioner/martin)
+* participant[practitioner].actor.type = "Practitioner"
 * participant[practitioner].actor.identifier.system = "urn:oid:1.2.250.1.71.4.2.1"
 * participant[practitioner].actor.identifier.value = "10003557123"
 * participant[practitioner].actor.display = "Dr Jean Martin"
@@ -26,5 +32,6 @@ Usage: #example
 
 // Salle
 * participant[location].actor = Reference(Location/salle-101)
+* participant[location].actor.type = "Location"
 * participant[location].actor.display = "Salle 101"
 * participant[location].status = #accepted
