@@ -44,7 +44,7 @@ pages:
     title: Example Home
   bureau-entrees.md:
     title: Bureau des entrées
-  patrimoine.md:
+  README_PatrimoineLocation.md:
     title: Gestion du patrimoine
   rh-soignants.md:
     title: Gestion RH 2
@@ -82,7 +82,7 @@ menu:
   Home: index.html
   Artifacts: artifacts.html
   Bureau des entrées: bureau-entrees.html
-  Gestion du patrimoine: patrimoine.html
+  Gestion du patrimoine: README_PatrimoineLocation.html
   Gestion RH 2: rh-soignants.html
   Secretariat: secretariat.html
 
