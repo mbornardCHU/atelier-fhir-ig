@@ -27,12 +27,12 @@ jobs:
           docker run --rm \
             -v "$PWD":/home/publisher/ig \
             hl7fhir/ig-publisher-base:latest \
-            /bin/bash -c "cd /home/publisher/ig && chmod +x _updatePublisher.sh _genonce.sh && ./_updatePublisher.sh && ./_genonce.sh"
+            /bin/bash -c "cd /home/publisher/ig/workspace/IG-FHIR-TP && chmod +x _updatePublisher.sh _genonce.sh && ./_updatePublisher.sh && ./_genonce.sh"
 
       - name: Upload GitHub Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: output
+          path: workspace/IG-FHIR-TP/output
 
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v4
