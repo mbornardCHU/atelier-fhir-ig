@@ -39,9 +39,17 @@ dependencies:
 # with supported extensions (e.g., .md/.xml) will be treated as
 # sub-pages.
 #
-# pages:
-#   index.md:
-#     title: Example Home
+pages:
+  index.md:
+    title: Example Home
+  bureau-entrees.md:
+    title: Bureau des entrées
+  patrimoine.md:
+    title: Gestion du patrimoine
+  rh-soignants.md:
+    title: Gestion RH 2
+  secretariat.md:
+    title: Secretariat
 #   implementation.xml:
 #   examples.xml:
 #     title: Examples Overview
@@ -73,6 +81,11 @@ dependencies:
 menu:
   Home: index.html
   Artifacts: artifacts.html
+  Bureau des entrées: bureau-entrees.html
+  Gestion du patrimoine: patrimoine.html
+  Gestion RH 2: rh-soignants.html
+  Secretariat: secretariat.html
+
 
 # ╭───────────────────────────Less Common Implementation Guide Properties──────────────────────────╮
 # │  Uncomment the properties below to configure additional properties on the ImplementationGuide  │
