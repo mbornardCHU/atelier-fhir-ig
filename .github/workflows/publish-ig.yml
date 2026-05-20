@@ -22,12 +22,44 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Debug before build
+        run: |
+          echo "Répertoire courant :"
+          pwd
+          echo "Contenu racine :"
+          ls -la
+          echo "Contenu IG :"
+          ls -la workspace/IG-FHIR-TP
+
       - name: Build IG with HL7 IG Publisher
         run: |
           docker run --rm \
             -v "$PWD":/home/publisher/ig \
             hl7fhir/ig-publisher-base:latest \
             /bin/bash -c "cd /home/publisher/ig/workspace/IG-FHIR-TP && chmod +x _updatePublisher.sh _genonce.sh && ./_updatePublisher.sh && ./_genonce.sh"
+
+      - name: Debug after build
+        run: |
+          echo "Contenu IG après build :"
+          ls -la workspace/IG-FHIR-TP || true
+
+          echo "Recherche de tous les dossiers output :"
+          find . -type d -name output -print || true
+
+          echo "Recherche des fichiers index.html :"
+          find . -type f -name index.html -print || true
+
+          echo "Recherche des dossiers contenant des pages HTML :"
+          find . -type f -name "*.html" | head -50 || true
+
+      - name: Check expected output folder
+        run: |
+          if [ ! -d "workspace/IG-FHIR-TP/output" ]; then
+            echo "Le dossier workspace/IG-FHIR-TP/output est introuvable."
+            echo "Voici les dossiers présents dans workspace/IG-FHIR-TP :"
+            ls -la workspace/IG-FHIR-TP
+            exit 1
+          fi
 
       - name: Upload GitHub Pages artifact
         uses: actions/upload-pages-artifact@v3
